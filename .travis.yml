@@ -26,6 +26,4 @@ before_install:
 
 script:
   - make
-  - diff -au <(gofmt -s -d cmd) <(printf "")
-  - diff -au <(gofmt -s -d pkg) <(printf "")
   - for d in $(go list ./... | grep -v browser); do CGO_ENABLED=1 go test -v -race --timeout 15m "$d"; done
