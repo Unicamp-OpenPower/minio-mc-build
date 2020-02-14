@@ -28,3 +28,10 @@ before_install:
 script:
   - make
   - for d in $(go list ./... | grep -v browser); do CGO_ENABLED=1 go test -v -race --timeout 15m "$d"; done
+
+notifications:
+  slack:
+    rooms:
+      - secure: "c2Xnmeq8/5qXK9qWjkLDTDlzlYyPs3DhWGhNuhnuPGf6hnITEQHhhEAcXvmqoyAELajo3gpDLSyOffZ7bncUsCAJGCTJcjKdW+cYNObw2KttErkUlv3MI1/ZAvU86rPCvORDnmB7gtnUKP3sTnYAOkUVDbzhlSLK/Nl29rsRhDH3kxhYV4W5Fm8XzH0eZn46brDhGsyxIz0qaOCZCyJ3bZqawGqKzKlWP+b6NvXPlDBx2Qga7UsqDGQ0GsRYTk4BVVnTFdSbTiFXwS/n+GqAK0aAb/KhlL1hw/OntbEEHDYQzuCeC9zR89ruhkWl+lmC4ptRAPgBv94ExhhOSaUOYk78EmxsLJbwooIu17yryD2MRujtnaD8FZxJZSyNJmA2jtkJp/fIEPkEx7s9dQfR1/UyDsgvn7Fgm1YJxoI0Cm3wvJHjhDwcCnfXBtkCtZeIwEbTrLZzbn/pQ99EZ+Q1eX9KCTwCkz6e/ST4AwRI7Rk5YCPeREr+QDUf8x/LGsFGs4N3deUFtqHoi/bPv7obmi1xDlCtc7GsXyVi01zqt/Yr9Wa8yJS8AZ0tuB6V29jBYptSvjmWZjNO0mX3utpIicU+WS/zle8GQS4lYdmU+8oBLvP0JLbpPfYA2xh9xUW0zvxzvQSK1enBGVcwXuNawbrGKM80hXpa4gBDpCdW/Gc="
+    on_success: change
+    on_failure: change
