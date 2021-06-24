@@ -13,7 +13,7 @@ cache:
     - $HOME/gopath/pkg/mod
     - $HOME/go/pkg/mod
 
-go: 1.14.x
+go: 1.16.x
 
 before_script:
   - git clone https://github.com/minio/mc.git
