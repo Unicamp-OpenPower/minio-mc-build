@@ -8,7 +8,7 @@ dist: focal
 sudo: required
 env: ARCH=ppc64le CGO_ENABLED=0
 
-go: 1.16.x
+go: 1.17.x
 
 before_script:
   - git clone https://github.com/minio/mc.git
